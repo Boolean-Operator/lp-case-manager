@@ -1,4 +1,9 @@
-## Getting Started
+## To be Deployed on Vercel
+
+- vercel  
+- github repo
+
+## Dev Getting Started
 
 First, run the development server:
 
@@ -14,4 +19,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployed on Vercel
+
+### Notes
+
+May need to use ```--legacy-peer-deps flag```
+
+***package.json***
+
+ //  Sentry not quite ready for TurboPack
+
+ Replace  this line of code
+ 
+ ```
+ "dev": "next dev --turbopack",
+ ```
+ with
+ ```
+    "dev": "next dev",
+ ```
