@@ -14,5 +14,12 @@
 - [ ] Interaction/Case Notes for documenting interactions with clients
 - [ ] Case Plans are OPEN, COMPLETED or ARCHIVED
 - [ ] Clients are CONTACT, PENDING, ACTIVE, INACTIVE
+- [ ] All users can create and view case notes
+- [ ] Workers can only edit their own case notes and interactions
+- [ ] All workers can create and view interactions
+- [ ] All workers can create, edit and view clients
+- [ ] Managers and Admins can createm view, edit and archive all clients
+- [ ] Managers and Admins can view, edit and archive all case notes and interactions
+- [ ] Admin and Managers only can create workers
 - [ ] Section for workforce Development
 - [ ] General Ledger to record client assistance draws

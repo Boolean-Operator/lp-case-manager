@@ -2,6 +2,7 @@ import { BackButton } from "@/components/backButton";
 import { getClient } from "@/lib/queries/getClient";
 import { getCaseNote } from "@/lib/queries/getCaseNote";
 import * as Sentry from "@sentry/nextjs";
+import CaseNoteForm from "./CaseNoteForm";
 
 export default async function CaseNotFormPage({
   searchParams,
@@ -33,7 +34,7 @@ export default async function CaseNotFormPage({
           </>
         );
       }
-      if (!client.active) {
+      if (client.status === "Inactive") {
         return (
           <>
             <h2 className="text-2xl mb-2">
@@ -44,7 +45,8 @@ export default async function CaseNotFormPage({
         );
       }
       console.log(client);
-      // Return Case Note Form Component
+      // Return New Case Note Form Component
+      return <CaseNoteForm client={client} />;
     }
     if (caseNoteId) {
       const case_note = await getCaseNote(parseInt(caseNoteId));
@@ -61,9 +63,10 @@ export default async function CaseNotFormPage({
 
       const client = await getClient(case_note.clientId);
 
-      // Return Case Note Form Component
       console.log("Case Note: ", case_note);
       console.log("Client: ", client);
+      // Return Case Note Form Component
+      return <CaseNoteForm client={client} caseNote={case_note} />;
     }
   } catch (error) {
     if (error instanceof Error) {

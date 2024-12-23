@@ -1,35 +1,36 @@
 import { BackButton } from "@/components/backButton";
-import { getClient } from "@/lib/queries/getClient";
+import { getWorker } from "@/lib/queries/getWorker";
 import * as Sentry from "@sentry/nextjs";
-import ClientForm from "./ClientForm";
+import WorkerForm from "./WorkerForm";
+// import ClientForm from "./ClientForm";
 
-export default async function ClientFormPage({
+export default async function WorkerFormPage({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   try {
-    const { clientId } = await searchParams;
+    const { workerId } = await searchParams;
 
     // Edit client form
-    if (clientId) {
-      const client = await getClient(parseInt(clientId));
+    if (workerId) {
+      const worker = await getWorker(parseInt(workerId));
 
-      if (!client) {
+      if (!worker) {
         return (
           <>
-            <h2 className="text-2xl mb-2">Client ID #{clientId} not found</h2>
+            <h2 className="text-2xl mb-2">Worker ID #{workerId} not found</h2>
             <BackButton title="Go Back" variant="default" />
           </>
         );
       }
-      console.log(client);
+      console.log(worker);
 
       // Edit Form Component
-      return <ClientForm client={client} />;
+      return <WorkerForm worker={worker} />;
     } else {
       // New Form Component
-      return <ClientForm />;
+      return <WorkerForm />;
     }
   } catch (error) {
     if (error instanceof Error) {
