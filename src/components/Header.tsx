@@ -1,4 +1,4 @@
-import { HomeIcon, File, UsersRound, LogOut } from "lucide-react";
+import { HardHatIcon, HomeIcon, File, UsersRound, LogOut } from "lucide-react";
 import Link from "next/link";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Button } from "./ui/button";
@@ -22,6 +22,7 @@ export default function Header() {
         <div className="flex items-center">
           <NavButton href="/case-notes" label="Case Notes" icon={File} />
           <NavButton href="/clients" label="Clients" icon={UsersRound} />
+          <NavButton href="/workers" label="Workers" icon={HardHatIcon} />
           <Button
             variant="ghost"
             size="icon"
