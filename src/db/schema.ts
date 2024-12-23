@@ -1,6 +1,7 @@
 import {
   boolean,
   integer,
+  pgEnum,
   pgTable,
   serial,
   text,
@@ -9,6 +10,13 @@ import {
 } from "drizzle-orm/pg-core";
 
 import { relations } from "drizzle-orm";
+
+export const clientStatusEnum = pgEnum("status", [
+  "Preliminary",
+  "Pending",
+  "Active",
+  "Inactive",
+]);
 
 export const clients = pgTable("clients", {
   id: serial().primaryKey().notNull(),
@@ -20,7 +28,7 @@ export const clients = pgTable("clients", {
   caseManager: integer("case_manager")
     .notNull()
     .references(() => workers.id),
-  active: boolean().default(true).notNull(),
+  status: clientStatusEnum("status").default("Preliminary"),
   createdAt: timestamp("created_at", { mode: "string" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow().notNull(),
 });
@@ -33,7 +41,7 @@ export const workers = pgTable("workers", {
   role: varchar(),
   email: varchar().notNull().unique(),
   phone: varchar().notNull(),
-  active: boolean().default(true).notNull(),
+
   createdAt: timestamp("created_at", { mode: "string" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow().notNull(),
 });
