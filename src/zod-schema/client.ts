@@ -11,8 +11,6 @@ export const insertClientSchema = createInsertSchema(clients, {
       /^\d{3}-\d{3}-\d{4}$/,
       "Invalid phone number format. Use XXX-XXX-XXXX"
     ),
-  caseManager: (schema) =>
-    schema.min(1, "Client must be assigned a case manager"),
   status: z.enum(["Preliminary", "Pending", "Active", "Inactive"]),
 });
 

@@ -5,6 +5,7 @@ import { z } from "zod";
 export const insertCaseNoteSchema = createInsertSchema(caseNotes, {
   id: z.union([z.number(), z.literal("(New)")]),
   subject: (schema) => schema.min(1, "Note subject is required"),
+  // other: z.boolean,
   note: (schema) => schema.min(1, "Note body is required"),
   clientId: (schema) => schema.min(1, "Client Id is required"),
   authorId: (schema) => schema.min(1, "Note author is required"),
