@@ -1,6 +1,10 @@
+# CASE MANAGER
+
+The case manager platform is built to assist case managers with tracking and coordinating clients and client interactions to drive better client and patient outcomes.
+
 ## To be Deployed on Vercel
 
-- vercel  
+- vercel
 - github repo
 
 ## Dev Getting Started
@@ -19,21 +23,35 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Tech Stack
+
+- Next JS
+- React JS
+- TypeScript
+- React Hook Form
+- Neon DB
+- Drizzle
+- Zod
+- TailwindCSS
+- ShadCN-UI
+- Kinde
 
 ### Notes
 
-May need to use ```--legacy-peer-deps flag```
+May need to use `--legacy-peer-deps flag`
 
-***package.json***
+**_package.json_**
 
- //  Sentry not quite ready for TurboPack
+// Sentry not quite ready for TurboPack
 
- Replace  this line of code
- 
- ```
- "dev": "next dev --turbopack",
- ```
- with
- ```
-    "dev": "next dev",
- ```
+Replace this line of code
+
+```
+"dev": "next dev --turbopack",
+```
+
+with
+
+```
+   "dev": "next dev",
+```

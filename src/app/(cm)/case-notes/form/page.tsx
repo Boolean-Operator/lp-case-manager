@@ -1,10 +1,10 @@
 import { BackButton } from "@/components/backButton";
 import { getClient } from "@/lib/queries/getClient";
 import { getCaseNote } from "@/lib/queries/getCaseNote";
-import * as Sentry from "@sentry/nextjs";
+// import * as Sentry from "@sentry/nextjs";
 import CaseNoteForm from "./CaseNoteForm";
 
-export default async function CaseNotFormPage({
+export default async function CaseNoteFormPage({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>;
@@ -70,7 +70,8 @@ export default async function CaseNotFormPage({
     }
   } catch (error) {
     if (error instanceof Error) {
-      Sentry.captureException(error);
+      console.log(error);
+      // Sentry.captureException(error);
       throw error;
     }
   }

@@ -1,6 +1,6 @@
 import { BackButton } from "@/components/backButton";
 import { getClient } from "@/lib/queries/getClient";
-import * as Sentry from "@sentry/nextjs";
+// import * as Sentry from "@sentry/nextjs";
 import ClientForm from "./ClientForm";
 
 export default async function ClientFormPage({
@@ -33,7 +33,8 @@ export default async function ClientFormPage({
     }
   } catch (error) {
     if (error instanceof Error) {
-      Sentry.captureException(error);
+      console.log(error);
+      // Sentry.captureException(error);
       throw error;
     }
   }

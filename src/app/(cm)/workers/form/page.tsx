@@ -1,6 +1,6 @@
 import { BackButton } from "@/components/backButton";
 import { getWorker } from "@/lib/queries/getWorker";
-import * as Sentry from "@sentry/nextjs";
+// import * as Sentry from "@sentry/nextjs";
 import WorkerForm from "./WorkerForm";
 // import ClientForm from "./ClientForm";
 
@@ -34,7 +34,8 @@ export default async function WorkerFormPage({
     }
   } catch (error) {
     if (error instanceof Error) {
-      Sentry.captureException(error);
+      // Sentry.captureException(error);
+      console.log(error);
       throw error;
     }
   }
